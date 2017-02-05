@@ -5,12 +5,6 @@
       http://java.sun.com/xml/ns/javaee/ejb-jar_3_1.xsd"
          version="3.1">
     <enterprise-beans>
-        <!--<session>-->
-            <!--&lt;!&ndash;<ejb-name>TestEJB</ejb-name>&ndash;&gt;-->
-            <!--&lt;!&ndash;<ejb-class>ch.TestBean</ejb-class>&ndash;&gt;-->
-            <!--&lt;!&ndash;<session-type>Stateless</session-type>&ndash;&gt;-->
-            <!--&lt;!&ndash;<transaction-type>Container</transaction-type>&ndash;&gt;-->
-        <!--</session>-->
         <message-driven>
             <ejb-name>HouseWeatherEventMDB</ejb-name>
             <ejb-class>com.pahlsoft.hws.orchestration.ejb.HouseWeatherEventMDB</ejb-class>

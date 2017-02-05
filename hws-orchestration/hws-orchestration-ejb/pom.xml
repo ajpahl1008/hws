@@ -5,8 +5,9 @@
    <parent>
       <artifactId>hws-orchestration</artifactId>
       <groupId>com.pahlsoft.hws</groupId>
-      <version>0.0.1-SNAPSHOT</version>
+       <version>0.0.1-SNAPSHOT</version>
    </parent>
+    <version>${project.parent.version}</version>
 
    <artifactId>hws-orchestration-ejb</artifactId>
    <packaging>ejb</packaging>
@@ -18,6 +19,7 @@
       <dependency>
          <groupId>junit</groupId>
          <artifactId>junit</artifactId>
+          <scope>test</scope>
       </dependency>
       <dependency>
       	<groupId>org.apache.activemq</groupId>
@@ -29,6 +31,16 @@
          <artifactId>javax.ejb-api</artifactId>
          <version>3.2</version>
       </dependency>
+       <dependency>
+           <groupId>org.apache.logging.log4j</groupId>
+           <artifactId>log4j-api</artifactId>
+           <version>2.7</version>
+       </dependency>
+       <dependency>
+           <groupId>org.apache.logging.log4j</groupId>
+           <artifactId>log4j-core</artifactId>
+           <version>2.7</version>
+       </dependency>
    </dependencies>
 
    <build>
@@ -37,7 +49,6 @@
             <artifactId>maven-ejb-plugin</artifactId>
             <version>2.3</version>
             <configuration>
-               <!-- Tell Maven we are using EJB 3.1 -->
                <ejbVersion>3.1</ejbVersion>
             </configuration>
          </plugin>
