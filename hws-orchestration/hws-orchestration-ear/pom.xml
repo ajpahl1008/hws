@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+   <modelVersion>4.0.0</modelVersion>
+
+   <parent>
+      <artifactId>hws-orchestration</artifactId>
+      <groupId>com.pahlsoft.hws</groupId>
+      <version>0.0.1-SNAPSHOT</version>
+   </parent>
+	<version>${project.parent.version}</version>
+
+   <artifactId>hws-orchestration-ear</artifactId>
+   <packaging>ear</packaging>
+
+   <name>Home Weather Station Orchestration EAR module</name>
+
+   <dependencies>
+
+      <!-- Depend on the ejb module and war so that we can package them -->
+      <dependency>
+         <groupId>com.pahlsoft.hws</groupId>
+         <artifactId>hws-orchestration-ejb</artifactId>
+         <type>ejb</type>
+      </dependency>
+   </dependencies>
+
+   <build>
+      <finalName>hws-orchestration-${project.parent.version}</finalName>
+    
+      <plugins>
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-ear-plugin</artifactId>
+            <version>2.6</version>
+            <configuration>
+               <!-- Tell Maven we are using Java EE 6 -->
+               <version>6</version>
+               <!-- Use Java EE ear libraries as needed. Java EE ear libraries 
+                  are in easy way to package any libraries needed in the ear, and automatically 
+                  have any modules (EJB-JARs and WARs) use them -->
+               <defaultLibBundleDir>lib</defaultLibBundleDir>
+               <modules></modules>
+            </configuration>
+         </plugin>
+
+      </plugins>
+   </build>
+   
+   <profiles>
+      <!--<profile>-->
+         <!--&lt;!&ndash; When built in OpenShift the 'openshift' profile will be used when invoking mvn. &ndash;&gt;-->
+         <!--&lt;!&ndash; Use this profile for any OpenShift specific customization your app will need. &ndash;&gt;-->
+         <!--&lt;!&ndash; By default that is to put the resulting archive into the 'deployments' folder. &ndash;&gt;-->
+         <!--&lt;!&ndash; http://maven.apache.org/guides/mini/guide-building-for-different-environments.html &ndash;&gt;-->
+         <!--<id>openshift</id>-->
+         <!--<build>-->
+            <!--<plugins>-->
+               <!--<plugin>-->
+                  <!--<artifactId>maven-ear-plugin</artifactId>-->
+                  <!--<version>2.6</version>-->
+                  <!--<configuration>-->
+                     <!--<outputDirectory>deployments</outputDirectory>-->
+                  <!--</configuration>-->
+               <!--</plugin>-->
+            <!--</plugins>-->
+         <!--</build>-->
+      <!--</profile>-->
+   </profiles>
+
+   </project>
